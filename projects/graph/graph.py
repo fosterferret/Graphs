@@ -14,7 +14,7 @@ class Graph:
         Add a vertex to the graph.
         """
         if vertex_id in self.vertices:
-            print('WARNING: The vertex already exists!')
+            print('WARNING: The vertex already exists!!!!!!!!')
         else:
             self.vertices[vertex_id] = set()
 
