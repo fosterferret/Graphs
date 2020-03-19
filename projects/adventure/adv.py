@@ -30,6 +30,27 @@ player = Player(world.starting_room)
 traversal_path = []
 
 
+generated_paths = []
+
+for i in range(700):
+    player = Player(world.starting_room)
+    traversal_graph = Graph(player)
+
+    while len(traversal_graph.rooms) < len(room_graph):
+        traversal_graph.bfs()
+        traversal_graph.dft_recursive()
+
+    generated_paths.append(traversal_graph.traversal_path)
+
+shortest_path = generated_paths[0]
+shortest_length = len(generated_paths[0])
+for path in generated_paths:
+    if len(path) < shortest_length:
+        shortest_path = path
+        shortest_length = len(shortest_path)
+
+traversal_path = shortest_path
+
 
 # TRAVERSAL TEST
 visited_rooms = set()
